@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hotel-serverless-pipeline"
+version = "0.1.0"
+description = "Sistema de transformación serverless para datos de hoteles en Buenos Aires desde Booking.com"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "boto3>=1.42.49",
+    "pandas>=3.0.0",
+    "pyarrow>=23.0.0",
+]
+license = {text = "MIT"}
+authors = [
+    {name = "Gerardo Toboso", email = "gerardotoboso1909@gmail.com"}
+]
+maintainers = [
+    {name = "Gerardo Toboso", email = "gerardotoboso1909@gmail.com"}
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["*"]
+exclude = ["tests*", "*.tests*", "*.tests.*"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-check>=2.6.2",
+    "pytest-cov>=7.0.0",
+    "pytest-html==3.2.0",
+]
